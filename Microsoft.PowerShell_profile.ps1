@@ -1,0 +1,1 @@
+Function pwdcp{(pwd).path | clip}
