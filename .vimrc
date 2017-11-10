@@ -22,6 +22,7 @@ Plugin 'leafgarland/typescript-vim'
 Plugin 'https://github.com/gioele/vim-autoswap.git'
 Plugin 'Quramy/tsuquyomi'
 Plugin 'moll/vim-node'
+Plugin 'Xuyuanp/nerdtree-git-plugin'
 
 call vundle#end()
 
