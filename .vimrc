@@ -118,3 +118,7 @@ let g:ycm_path_to_python_interpreter = '/usr/local/bin/python' " This requires a
 let g:ycm_server_python_interpreter = '/usr/local/bin/python'
 let g:ycm_python_binary_path = '/usr/local/bin/python'
 
+" Linting
+let g:syntastic_typescript_checkers = ['tslint']
+let g:syntastic_javascript_checkers = ['eslint']
+
