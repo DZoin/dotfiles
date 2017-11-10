@@ -17,6 +17,10 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-repeat'
 Plugin 'rstacruz/sparkup'
 Plugin 'mileszs/ack.vim'
+Plugin 'tpope/vim-commentary'
+Plugin 'leafgarland/typescript-vim'
+Plugin 'https://github.com/gioele/vim-autoswap.git'
+Plugin 'Quramy/tsuquyomi'
 
 call vundle#end()
 
@@ -63,11 +67,16 @@ au BufNewFile,BufRead *.cpp
     \ set expandtab |
     \ set autoindent |
     \ set fileformat=unix
-"HTML/CSS/JS Tabstops - 2
-au BufNewFile,BufRead *.js, *.html, *.css
+"HTML/CSS Tabstops - 2
+au BufNewFile,BufRead *.html, *.css
     \ set tabstop=2 |
     \ set softtabstop=2 |
     \ set shiftwidth=2
+"JS/TS Tabstops - 4
+au BufNewFile,BufRead *.js, *.ts 
+    \ set tabstop=4 |
+    \ set softtabstop=4 |
+    \ set shiftwidth=4
 
 "define BadWhitespace before using in a match
 
@@ -99,4 +108,7 @@ autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in
 
 map <C-n> :NERDTreeToggle<CR>
 let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'
+let g:ycm_path_to_python_interpreter = '/usr/local/bin/python' " This requires a symlink python -> python2
+let g:ycm_server_python_interpreter = '/usr/local/bin/python'
+let g:ycm_python_binary_path = '/usr/local/bin/python'
 
