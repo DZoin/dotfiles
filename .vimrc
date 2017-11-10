@@ -49,6 +49,7 @@ let g:SimpylFold_docstring_preview=1
 "General indentation
 setlocal shiftwidth=4
 setlocal tabstop=4
+setlocal expandtab
 
 "PEP8 indentation
 au BufNewFile,BufRead *.py
@@ -73,11 +74,14 @@ au BufNewFile,BufRead *.html, *.css
     \ set tabstop=2 |
     \ set softtabstop=2 |
     \ set shiftwidth=2
+	\ set expandtab
 "JS/TS Tabstops - 4
 au BufNewFile,BufRead *.js, *.ts 
     \ set tabstop=4 |
     \ set softtabstop=4 |
-    \ set shiftwidth=4
+    \ set shiftwidth=4 |
+    \ set expandtab |
+    \ set autoindent
 
 "define BadWhitespace before using in a match
 
