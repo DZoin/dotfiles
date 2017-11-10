@@ -21,6 +21,7 @@ Plugin 'tpope/vim-commentary'
 Plugin 'leafgarland/typescript-vim'
 Plugin 'https://github.com/gioele/vim-autoswap.git'
 Plugin 'Quramy/tsuquyomi'
+Plugin 'moll/vim-node'
 
 call vundle#end()
 
