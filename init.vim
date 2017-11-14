@@ -47,9 +47,36 @@ Plug 'nsf/gocode'
 Plug 'zchee/deoplete-jedi'
 Plug 'zchee/deoplete-clang'
 Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
+Plug 'vim-syntastic/syntastic'
+Plug 'rust-lang/rust.vim'
+Plug 'myint/syntastic-extras'
+Plug 'roktas/syntastic-more'
 
 " Initialize plugin system
 call plug#end()
+
+"Syntastic settings
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
+" Syntastic plugins
+let g:syntastic_c_checkers = ['check']
+let g:syntastic_cpp_checkers = ['check']
+let g:syntastic_make_checkers = ['gnumake']
+let g:syntastic_javascript_checkers = ['json_tool']
+let g:syntastic_json_checkers = ['json_tool']
+let g:syntastic_gitcommit_checkers = ['language_check']
+let g:syntastic_svn_checkers = ['language_check']
+let g:syntastic_python_checkers = ['pyflakes_with_warnings']
+let g:syntastic_yaml_checkers = ['pyyaml']
+let g:syntastic_typescript_checkers = ['tsc', 'tslint']
+let g:syntastic_typescript_tsc_fname = ''
 
 " Setting for js (tern) in deoplete
 " ===========================================================================
