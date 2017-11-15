@@ -77,6 +77,13 @@ let g:syntastic_python_checkers = ['pyflakes_with_warnings']
 let g:syntastic_yaml_checkers = ['pyyaml']
 let g:syntastic_typescript_checkers = ['tsc', 'tslint']
 let g:syntastic_typescript_tsc_fname = ''
+" let g:typescript_compiler_binary = '$(npm bin)/tsc' " Uncomment for local tsc
+let g:syntastic_javascript_checkers=['eslint']
+
+function! StrTrim(txt)
+  return substitute(a:txt, '^\n*\s*\(.\{-}\)\n*\s*$', '\1', '')
+endfunction
+let b:syntastic_javascript_eslint_exec = StrTrim(system('npm-which eslint'))
 
 " Setting for js (tern) in deoplete
 " ===========================================================================
@@ -177,13 +184,13 @@ au BufNewFile,BufRead *.cpp
     \ set autoindent |
     \ set fileformat=unix
 "HTML/CSS Tabstops - 2
-au BufNewFile,BufRead *.html, *.css
+au BufNewFile,BufRead *.html,*.css
     \ set tabstop=2 |
     \ set softtabstop=2 |
     \ set shiftwidth=2
 	\ set expandtab
 "JS/TS Tabstops - 4
-au BufNewFile,BufRead *.js, *.ts 
+au BufNewFile,BufRead *.js,*.ts 
     \ set tabstop=4 |
     \ set softtabstop=4 |
     \ set shiftwidth=4 |
@@ -195,12 +202,9 @@ au BufNewFile,BufRead *.js, *.ts
 highlight BadWhitespace ctermbg=red guibg=darkred
 
 "Flag unnecessary white space
-au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
+au BufRead,BufNewFile *.py,*.pyw,*.c,*.h,*.js,*.ts,*.rb match BadWhitespace /\s\+$/
 
 set encoding=utf-8
-
-"Go to definition or declaration of func with <leader>-g(\-g)
-let g:ycm_autoclose_preview_window_after_completion=1
 
 let python_highlight_all=1
 syntax on
