@@ -52,6 +52,7 @@ Plug 'rust-lang/rust.vim'
 Plug 'myint/syntastic-extras'
 Plug 'roktas/syntastic-more'
 Plug 'tpope/vim-unimpaired'
+Plug 'tpope/vim-rails'
 
 " Initialize plugin system
 call plug#end()
