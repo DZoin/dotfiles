@@ -51,6 +51,7 @@ Plug 'vim-syntastic/syntastic'
 Plug 'rust-lang/rust.vim'
 Plug 'myint/syntastic-extras'
 Plug 'roktas/syntastic-more'
+Plug 'tpope/vim-unimpaired'
 
 " Initialize plugin system
 call plug#end()
@@ -208,6 +209,7 @@ set encoding=utf-8
 
 let python_highlight_all=1
 syntax on
+colorscheme delek
 
 set number
 
