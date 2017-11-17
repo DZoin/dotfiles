@@ -7,7 +7,8 @@ set ruler
 set showcmd
 set incsearch " See search results while typing
 
-let g:deoplete#enable_at_startup = 1
+let g:deoplete#enable_at_startup = 0
+autocmd InsertEnter * call deoplete#enable()
 
 map Q gq
 syntax on
@@ -27,7 +28,7 @@ Plug 'junegunn/vim-easy-align'
 
 " Multiple Plug commands can be written in a single line using | separators
 Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
-
+Plug 'jwhitley/vim-colors-solarized'
 Plug 'tmhedberg/SimpylFold'
 Plug 'vim-scripts/indentpython.vim'
 Plug 'nvie/vim-flake8'
@@ -47,45 +48,18 @@ Plug 'nsf/gocode'
 Plug 'zchee/deoplete-jedi'
 Plug 'zchee/deoplete-clang'
 Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
-Plug 'vim-syntastic/syntastic'
 Plug 'rust-lang/rust.vim'
-Plug 'myint/syntastic-extras'
-Plug 'roktas/syntastic-more'
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-rails'
+Plug 'neomake/neomake'
 
 " Initialize plugin system
 call plug#end()
 
-"Syntastic settings
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-
-" Syntastic plugins
-let g:syntastic_c_checkers = ['check']
-let g:syntastic_cpp_checkers = ['check']
-let g:syntastic_make_checkers = ['gnumake']
-let g:syntastic_javascript_checkers = ['json_tool']
-let g:syntastic_json_checkers = ['json_tool']
-let g:syntastic_gitcommit_checkers = ['language_check']
-let g:syntastic_svn_checkers = ['language_check']
-let g:syntastic_python_checkers = ['pyflakes_with_warnings']
-let g:syntastic_yaml_checkers = ['pyyaml']
-let g:syntastic_typescript_checkers = ['tsc', 'tslint']
-let g:syntastic_typescript_tsc_fname = ''
-" let g:typescript_compiler_binary = '$(npm bin)/tsc' " Uncomment for local tsc
-let g:syntastic_javascript_checkers=['eslint']
-
-function! StrTrim(txt)
-  return substitute(a:txt, '^\n*\s*\(.\{-}\)\n*\s*$', '\1', '')
-endfunction
-let b:syntastic_javascript_eslint_exec = StrTrim(system('npm-which eslint'))
+" When reading a buffer (after 1s), and when writing.
+call neomake#configure#automake('rw', 1000)
+:highlight NeomakeErrorMsg ctermfg=227 ctermbg=237
+let g:neomake_warning_sign={'text': '⚠', 'texthl': 'NeomakeErrorMsg'}
 
 " Setting for js (tern) in deoplete
 " ===========================================================================
@@ -186,13 +160,14 @@ au BufNewFile,BufRead *.cpp
     \ set autoindent |
     \ set fileformat=unix
 "HTML/CSS Tabstops - 2
-au BufNewFile,BufRead *.html,*.css
+au BufNewFile,BufRead *.js,*.html,*.css
     \ set tabstop=2 |
     \ set softtabstop=2 |
-    \ set shiftwidth=2
-	\ set expandtab
+    \ set shiftwidth=2 |
+	\ set expandtab |
+    \ set autoindent
 "JS/TS Tabstops - 4
-au BufNewFile,BufRead *.js,*.ts 
+au BufNewFile,BufRead *.ts 
     \ set tabstop=4 |
     \ set softtabstop=4 |
     \ set shiftwidth=4 |
@@ -210,7 +185,9 @@ set encoding=utf-8
 
 let python_highlight_all=1
 syntax on
-colorscheme delek
+syntax enable
+set background=dark
+colorscheme solarized
 
 set number
 
