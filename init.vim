@@ -213,3 +213,6 @@ colorscheme delek
 
 set number
 
+" Make %% expand to the current buffer file path
+cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
+
