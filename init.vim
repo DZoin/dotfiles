@@ -62,6 +62,9 @@ call plug#end()
 call neomake#configure#automake('rw', 1000)
 :highlight NeomakeErrorMsg ctermfg=227 ctermbg=237
 let g:neomake_warning_sign={'text': '⚠', 'texthl': 'NeomakeErrorMsg'}
+let g:neomake_javascript_enabled_makers = ['eslint']
+let b:neomake_javascript_eslint_exe = nrun#Which('eslint')
+let b:neomake_javascript_tslint_exe = nrun#Which('tslint')
 
 " Setting for js (tern) in deoplete
 " ===========================================================================
