@@ -52,6 +52,8 @@ Plug 'rust-lang/rust.vim'
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-rails'
 Plug 'neomake/neomake'
+Plug 'mileszs/ack.vim'
+Plug 'jaawerth/nrun.vim'
 
 " Initialize plugin system
 call plug#end()
