@@ -54,6 +54,7 @@ Plug 'tpope/vim-rails'
 Plug 'neomake/neomake'
 Plug 'mileszs/ack.vim'
 Plug 'jaawerth/nrun.vim'
+Plug 'digitaltoad/vim-pug'
 
 " Initialize plugin system
 call plug#end()
