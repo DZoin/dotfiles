@@ -55,6 +55,7 @@ Plug 'neomake/neomake'
 Plug 'mileszs/ack.vim'
 Plug 'jaawerth/nrun.vim'
 Plug 'digitaltoad/vim-pug'
+Plug 'Galooshi/vim-import-js'
 
 " Initialize plugin system
 call plug#end()
