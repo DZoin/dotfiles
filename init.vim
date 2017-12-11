@@ -56,6 +56,7 @@ Plug 'mileszs/ack.vim'
 Plug 'jaawerth/nrun.vim'
 Plug 'digitaltoad/vim-pug'
 Plug 'Galooshi/vim-import-js'
+Plug 'icymind/NeoSolarized'
 
 " Initialize plugin system
 call plug#end()
@@ -193,8 +194,15 @@ set encoding=utf-8
 let python_highlight_all=1
 syntax on
 syntax enable
-set background=dark
-colorscheme solarized
+
+if has("unix")
+  let s:uname = system("uname")
+  if s:uname == "Darwin\n"
+    colorscheme NeoSolarized
+    set background=dark
+  endif
+endif
+
 
 set number
 
