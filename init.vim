@@ -7,6 +7,8 @@ set ruler
 set showcmd
 set incsearch " See search results while typing
 
+let mapleader = " "
+
 let g:deoplete#enable_at_startup = 0
 autocmd InsertEnter * call deoplete#enable()
 
@@ -37,26 +39,30 @@ Plug 'tpope/vim-repeat'
 Plug 'rstacruz/sparkup'
 Plug 'mileszs/ack.vim'
 Plug 'tpope/vim-commentary'
-Plug 'leafgarland/typescript-vim'
+Plug 'tpope/vim-unimpaired'
 Plug 'https://github.com/gioele/vim-autoswap.git'
+
 Plug 'Quramy/tsuquyomi'
+
+"Programming languages - highlighting support
+Plug 'leafgarland/typescript-vim'
+Plug 'nsf/gocode'
+Plug 'digitaltoad/vim-pug'
 Plug 'moll/vim-node'
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'tpope/vim-rails'
+Plug 'rust-lang/rust.vim'
+
+" Deoplete - code completion plugins
 Plug 'mhartington/deoplete-typescript'
 Plug 'zchee/deoplete-go', { 'do': 'make'}
-Plug 'nsf/gocode'
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'zchee/deoplete-jedi'
 Plug 'zchee/deoplete-clang'
 Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
-Plug 'rust-lang/rust.vim'
-Plug 'tpope/vim-unimpaired'
-Plug 'tpope/vim-rails'
+
 Plug 'neomake/neomake'
-Plug 'mileszs/ack.vim'
 Plug 'jaawerth/nrun.vim'
-Plug 'digitaltoad/vim-pug'
 Plug 'Galooshi/vim-import-js'
-Plug 'icymind/NeoSolarized'
 
 " Initialize plugin system
 call plug#end()
@@ -194,18 +200,17 @@ set encoding=utf-8
 let python_highlight_all=1
 syntax on
 syntax enable
-
-if has("unix")
-  let s:uname = system("uname")
-  if s:uname == "Darwin\n"
-    colorscheme NeoSolarized
-    set background=dark
-  endif
-endif
-
+set background=dark
+colorscheme solarized
 
 set number
 
 " Make %% expand to the current buffer file path
 cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
 
+nnoremap <Leader>gs :Gstatus<CR>
+nnoremap <Leader>gd :Gdiff<CR>
+nnoremap <Leader>gb :Gblame<CR>
+nnoremap <Leader>gp :Git push<CR>
+nnoremap <Leader>g- :Silent Git stash<CR>:e<CR>
+nnoremap <Leader>g+ :Silent Git stash pop<CR>:e<CR>
