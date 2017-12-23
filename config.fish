@@ -9,11 +9,13 @@ set -gx PATH $PATH /System/Library/Frameworks/JavaScriptCore.framework/Versions/
 alias emacs="/usr/local/Cellar/emacs/25.2/bin/emacs"
 source ~/.config/fish/nvm-wrapper/nvm.fish
 set -gx NVM_DIR ~/.nvm
+set -gx NODE_ENV development
 set -gx PATH $PATH ~/bin
 set -g fish_user_paths "/usr/local/opt/libxml2/bin" $fish_user_paths
 set -g fish_user_paths "/usr/local/opt/sqlite/bin" $fish_user_paths
 set -g fish_user_paths "/usr/local/opt/llvm/bin" $fish_user_paths
 set -gx fish_user_paths "/usr/local/opt/python/libexec/bin" $fish_user_paths
+set -gx PATH /usr/local/opt/python/libexec/bin $PATH
 set -gx fish_user_paths export "homebrew/php/php71" $fish_user_paths
 alias cd..='cd ../'                         # Go back 1 directory level (for fast typers)
 alias ..='cd ../'                           # Go back 1 directory level
@@ -36,4 +38,7 @@ end
 function trash
   command mv "$argv[1]" ~/.Trash       
 end
+
+set -g fish_user_paths "/usr/local/sbin" $fish_user_paths
+alias mux="tmuxinator"
 
