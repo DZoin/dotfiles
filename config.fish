@@ -40,5 +40,6 @@ function trash
 end
 
 set -g fish_user_paths "/usr/local/sbin" $fish_user_paths
+set -gx EDITOR "/usr/local/bin/nvim"
 alias mux="tmuxinator"
 
