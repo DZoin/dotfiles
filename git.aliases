@@ -3,3 +3,7 @@ alias.br=branch --verbose
 alias.up=pull --rebase
 alias.lg=log --graph --format='%h %d %an %cr %s'
 alias.quickfix=commit -p --amend --no-edit
+alias.gc='git commit'
+alias.st status
+alias.unstage 'reset HEAD --'
+
