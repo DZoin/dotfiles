@@ -43,3 +43,6 @@ set -g fish_user_paths "/usr/local/sbin" $fish_user_paths
 set -gx EDITOR "/usr/local/bin/nvim"
 alias mux="tmuxinator"
 
+set -gx POWERLINE_PATH /Users/dimitarzoin/Library/Python/2.7/lib/python/site-packages/powerline
+source $POWERLINE_PATH/bindings/fish/powerline-setup.fish
+
