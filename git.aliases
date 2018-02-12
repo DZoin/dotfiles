@@ -6,5 +6,5 @@ alias.ll 'log --stat --abbrev-commit'
 alias.quickfix 'commit -p --amend --no-edit'
 alias.gc 'git commit'
 alias.st status
-alias.alias '!git config --list | grep 'alias\.' | sed 's/alias\.\([^=]*\)=\(.*\)/\1\	 => \2/' | sort'
+alias.alias "!git config --list | grep 'alias\.' | sed 's/alias\.\([^=]*\)=\(.*\)/\1\	 => \2/' | sort"
 alias.br 'branch --verbose'
