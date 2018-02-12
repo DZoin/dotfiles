@@ -1,7 +1,7 @@
 alias.co checkout
 alias.br 'branch --verbose'
 alias.up 'pull --rebase'
-alias.lg 'log --color --graph --pretty=format:'%C(bold white)%h%Creset -%C(bold green)%d%Creset %s %C(bold green)(%cr)%Creset %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative'
+alias.lg "log --color --graph --pretty=format:'%C(bold white)%h%Creset -%C(bold green)%d%Creset %s %C(bold green)(%cr)%Creset %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative"
 alias.ll 'log --stat --abbrev-commit'
 alias.quickfix 'commit -p --amend --no-edit'
 alias.gc 'git commit'
