@@ -59,21 +59,20 @@ Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'zchee/deoplete-jedi'
 Plug 'zchee/deoplete-clang'
 Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
+Plug 'w0rp/ale'
 
-Plug 'neomake/neomake'
 Plug 'jaawerth/nrun.vim'
 Plug 'Galooshi/vim-import-js'
 
 " Initialize plugin system
 call plug#end()
 
-" When reading a buffer (after 1s), and when writing.
-call neomake#configure#automake('rw', 1000)
-:highlight NeomakeErrorMsg ctermfg=227 ctermbg=237
-let g:neomake_warning_sign={'text': '⚠', 'texthl': 'NeomakeErrorMsg'}
-let g:neomake_javascript_enabled_makers = ['eslint']
-let b:neomake_javascript_eslint_exe = nrun#Which('eslint')
-let b:neomake_javascript_tslint_exe = nrun#Which('tslint')
+" Setup linting
+let g:ale_fixers = {
+\   'javascript': ['eslint'],
+\}
+let g:ale_javascript_eslint_use_global = 1
+let g:ale_fix_on_save = 1
 
 " Setting for js (tern) in deoplete
 " ===========================================================================
@@ -103,7 +102,7 @@ let g:deoplete#sources#ternjs#case_insensitive = 1
 let g:deoplete#sources#ternjs#guess = 0
 
 " Determines whether the result set will be sorted. Default: 1
-let g:deoplete#sources#ternjs#sort = 0
+let g:deoplete#sources#ternjs#sort = 1
 
 " When disabled, only the text before the given position is considered part of 
 " the word. When enabled (the default), the whole variable name that the cursor
