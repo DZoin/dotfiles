@@ -31,10 +31,6 @@ function mcd
   mkdir -p "$argv[1]"; and cd "$argv[1]";   # mcd: Makes new Dir and jumps inside
 end        
 
-function ll_on_cd --on-variable PWD
-  ll
-end
-
 function trash
   command mv "$argv[1]" ~/.Trash       
 end
@@ -46,3 +42,4 @@ alias mux="tmuxinator"
 set -gx POWERLINE_PATH /Users/dimitarzoin/Library/Python/2.7/lib/python/site-packages/powerline
 source $POWERLINE_PATH/bindings/fish/powerline-setup.fish
 
+set -g theme_display_ruby no
