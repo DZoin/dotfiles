@@ -62,7 +62,6 @@ Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
 Plug 'w0rp/ale'
 
 Plug 'jaawerth/nrun.vim'
-Plug 'Galooshi/vim-import-js'
 
 " Initialize plugin system
 call plug#end()
