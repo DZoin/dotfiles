@@ -43,7 +43,7 @@ Plug 'tpope/vim-unimpaired'
 Plug 'https://github.com/gioele/vim-autoswap.git'
 Plug 'Raimondi/delimitMate'
 Plug 'ntpeters/vim-better-whitespace'
-Plug 'pangloss/vim-javascript'
+Plug 'jelera/vim-javascript-syntax'
 
 Plug 'Quramy/tsuquyomi'
 
@@ -192,13 +192,6 @@ au BufNewFile,BufRead *.ts
     \ set expandtab |
     \ set autoindent
 
-"define BadWhitespace before using in a match
-
-highlight BadWhitespace ctermbg=red guibg=darkred
-
-"Flag unnecessary white space
-au BufRead,BufNewFile *.py,*.pyw,*.c,*.h,*.js,*.ts,*.rb match BadWhitespace /\s\+$/
-
 set encoding=utf-8
 
 let python_highlight_all=1
@@ -224,3 +217,4 @@ set hidden
 
 " Map esc to remove search highlighting
 nnoremap <esc> :noh<return><esc>
+
