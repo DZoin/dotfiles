@@ -41,6 +41,9 @@ Plug 'mileszs/ack.vim'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-unimpaired'
 Plug 'https://github.com/gioele/vim-autoswap.git'
+Plug 'Raimondi/delimitMate'
+Plug 'ntpeters/vim-better-whitespace'
+Plug 'pangloss/vim-javascript'
 
 Plug 'Quramy/tsuquyomi'
 
@@ -72,6 +75,9 @@ let g:ale_fixers = {
 \}
 let g:ale_javascript_eslint_use_global = 1
 let g:ale_fix_on_save = 1
+
+" Disable whitespace highlighting for Markdown files
+let g:better_whitespace_filetypes_blacklist=['md']
 
 " Setting for js (tern) in deoplete
 " ===========================================================================
@@ -212,3 +218,4 @@ nnoremap <Leader>gb :Gblame<CR>
 nnoremap <Leader>gp :Git push<CR>
 nnoremap <Leader>g- :Silent Git stash<CR>:e<CR>
 nnoremap <Leader>g+ :Silent Git stash pop<CR>:e<CR>
+
