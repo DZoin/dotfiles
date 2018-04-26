@@ -219,3 +219,8 @@ nnoremap <Leader>gp :Git push<CR>
 nnoremap <Leader>g- :Silent Git stash<CR>:e<CR>
 nnoremap <Leader>g+ :Silent Git stash pop<CR>:e<CR>
 
+" Make buffers hidden to enable switching without saving
+set hidden
+
+" Map esc to remove search highlighting
+nnoremap <esc> :noh<return><esc>
