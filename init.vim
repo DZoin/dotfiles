@@ -41,6 +41,9 @@ Plug 'https://github.com/gioele/vim-autoswap.git'
 Plug 'Raimondi/delimitMate'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'jelera/vim-javascript-syntax'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'tpope/vim-surround'
+Plug 'Chiel92/vim-autoformat'
 
 Plug 'Quramy/tsuquyomi'
 
@@ -214,4 +217,16 @@ set hidden
 
 " Map esc to remove search highlighting
 nnoremap <esc> :noh<return><esc>
+
+" CtrlP shortcuts
+let g:ctrlp_map = '<c-p>'
+let g:ctrlp_cmd = 'CtrlP'
+
+" CtrlP excludes
+let g:ctrlp_custom_ignore = {
+  \ 'dir':  'node_modules',
+  \ }
+
+" Autoformat quick button
+noremap <F3> :Autoformat<CR>
 
