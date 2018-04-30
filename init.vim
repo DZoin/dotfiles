@@ -79,6 +79,9 @@ let g:ale_fix_on_save = 1
 " Disable whitespace highlighting for Markdown files
 let g:better_whitespace_filetypes_blacklist=['md']
 
+" Autoclose preview window deoplete
+autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
+
 " Setting for js (tern) in deoplete
 " ===========================================================================
 let g:deoplete#sources#ternjs#types = 1
@@ -185,7 +188,7 @@ au BufNewFile,BufRead *.js,*.html,*.css
 	\ set expandtab |
     \ set autoindent
 "JS/TS Tabstops - 4
-au BufNewFile,BufRead *.ts 
+au BufNewFile,BufRead *.ts
     \ set tabstop=4 |
     \ set softtabstop=4 |
     \ set shiftwidth=4 |
@@ -195,8 +198,12 @@ au BufNewFile,BufRead *.ts
 set encoding=utf-8
 
 let python_highlight_all=1
+
 syntax on
+set t_Co=256
 syntax enable
+let g:solarized_termtrans = 1
+let g:solarized_termcolors=256
 set background=dark
 colorscheme solarized
 
