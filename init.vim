@@ -45,6 +45,9 @@ Plug 'ctrlpvim/ctrlp.vim'
 Plug 'tpope/vim-surround'
 Plug 'Chiel92/vim-autoformat'
 Plug 'Quramy/tsuquyomi'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'tpope/vim-fugitive'
 
 "Programming languages - highlighting support
 Plug 'leafgarland/typescript-vim'
@@ -184,7 +187,7 @@ au BufNewFile,BufRead *.js,*.html,*.css
     \ set tabstop=2 |
     \ set softtabstop=2 |
     \ set shiftwidth=2 |
-	\ set expandtab |
+    \ set expandtab |
     \ set autoindent
 "JS/TS Tabstops - 4
 au BufNewFile,BufRead *.ts
@@ -225,4 +228,19 @@ let g:ctrlp_custom_ignore = {
 
 " Autoformat quick button
 noremap <F3> :Autoformat<CR>
+
+let g:airline_theme='solarized'
+let g:airline_powerline_fonts = 1
+let g:airline#extensions#hunks#enabled = 0
+let g:airline#extensions#branch#enabled = 1
+let g:airline#extensions#branch#displayed_head_limit = 15
+let g:airline#extensions#branch#format = 2
+let g:airline#extensions#wordcount#enabled = 0
+
+if !exists('g:airline_symbols')
+    let g:airline_symbols = {}
+endif
+
+let g:airline_symbols.space = "\ua0"
+let g:airline_skip_empty_sections = 1
 
