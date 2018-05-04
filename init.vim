@@ -200,10 +200,7 @@ set encoding=utf-8
 let python_highlight_all=1
 
 syntax on
-set t_Co=256
 syntax enable
-let g:solarized_termtrans = 1
-let g:solarized_termcolors=256
 set background=dark
 colorscheme solarized
 
