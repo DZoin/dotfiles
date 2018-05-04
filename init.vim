@@ -1,3 +1,5 @@
+set shell=/bin/bash
+
 set ignorecase
 set backspace=indent,eol,start
 set autoindent
@@ -13,7 +15,6 @@ let g:deoplete#enable_at_startup = 0
 autocmd InsertEnter * call deoplete#enable()
 
 map Q gq
-syntax on
 set hlsearch
 filetype plugin indent on
 autocmd FileType text setlocal textwidth=78
@@ -22,7 +23,6 @@ autocmd FileType text setlocal textwidth=78
 " - For Neovim: ~/.local/share/nvim/plugged
 " - Avoid using standard Vim directory names like 'plugin'
 call plug#begin('~/.vim/plugged')
-
 " Shorthand notation; fetches https://github.com/junegunn/vim-easy-align
 Plug 'junegunn/vim-easy-align'
 
@@ -31,7 +31,7 @@ Plug 'jwhitley/vim-colors-solarized'
 Plug 'tmhedberg/SimpylFold'
 Plug 'vim-scripts/indentpython.vim'
 Plug 'nvie/vim-flake8'
-Plug 'tpope/vim-fugitive'
+Plug 'jreybert/vimagit'
 Plug 'tpope/vim-repeat'
 Plug 'rstacruz/sparkup'
 Plug 'mileszs/ack.vim'
@@ -44,7 +44,6 @@ Plug 'jelera/vim-javascript-syntax'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'tpope/vim-surround'
 Plug 'Chiel92/vim-autoformat'
-
 Plug 'Quramy/tsuquyomi'
 
 "Programming languages - highlighting support
@@ -208,13 +207,6 @@ set number
 
 " Make %% expand to the current buffer file path
 cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
-
-nnoremap <Leader>gs :Gstatus<CR>
-nnoremap <Leader>gd :Gdiff<CR>
-nnoremap <Leader>gb :Gblame<CR>
-nnoremap <Leader>gp :Git push<CR>
-nnoremap <Leader>g- :Silent Git stash<CR>:e<CR>
-nnoremap <Leader>g+ :Silent Git stash pop<CR>:e<CR>
 
 " Make buffers hidden to enable switching without saving
 set hidden
