@@ -53,7 +53,7 @@ Plug 'rstacruz/sparkup'
 " Initialize plugin system
 call plug#end()
 
-" Setup linting
+" Setup linting and autoformatting
 let g:ale_fixers = {
 \   'javascript': ['eslint'],
 \}
@@ -63,12 +63,16 @@ let g:ale_fix_on_save = 1
 " Disable whitespace highlighting for Markdown files
 let g:better_whitespace_filetypes_blacklist=['md']
 
-" Autoclose preview window deoplete
-autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
+" Autoformat quick button
+noremap <F3> :Autoformat<CR>
+" ===========================================================================
 
 " Deoplete general settings
 let g:deoplete#enable_at_startup = 0
 autocmd InsertEnter * call deoplete#enable()
+
+" Autoclose preview window deoplete
+autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
 
 " Setting for js (tern) in deoplete
 " ===========================================================================
@@ -134,6 +138,7 @@ set showcmd
 set incsearch " See search results while typing
 set hlsearch
 set encoding=utf-8
+set number
 
 let mapleader = " "
 
@@ -179,7 +184,7 @@ au BufNewFile,BufRead *.ts
     \ set expandtab |
     \ set autoindent
 
-" Colorscheme and syntax highlighting
+" Colors and syntax highlighting
 syntax on
 syntax enable
 set background=dark
@@ -187,7 +192,21 @@ colorscheme solarized
 
 let python_highlight_all=1
 
-set number
+let g:airline_theme='solarized'
+let g:airline_powerline_fonts = 1
+let g:airline#extensions#hunks#enabled = 0
+let g:airline#extensions#branch#enabled = 1
+let g:airline#extensions#branch#displayed_head_limit = 15
+let g:airline#extensions#branch#format = 2
+let g:airline#extensions#wordcount#enabled = 0
+
+if !exists('g:airline_symbols')
+    let g:airline_symbols = {}
+endif
+
+let g:airline_symbols.space = "\ua0"
+let g:airline_skip_empty_sections = 1
+" ============================================================================
 
 " Make %% expand to the current buffer file path
 cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
@@ -206,22 +225,4 @@ let g:ctrlp_cmd = 'CtrlP'
 let g:ctrlp_custom_ignore = {
   \ 'dir':  'node_modules',
   \ }
-
-" Autoformat quick button
-noremap <F3> :Autoformat<CR>
-
-let g:airline_theme='solarized'
-let g:airline_powerline_fonts = 1
-let g:airline#extensions#hunks#enabled = 0
-let g:airline#extensions#branch#enabled = 1
-let g:airline#extensions#branch#displayed_head_limit = 15
-let g:airline#extensions#branch#format = 2
-let g:airline#extensions#wordcount#enabled = 0
-
-if !exists('g:airline_symbols')
-    let g:airline_symbols = {}
-endif
-
-let g:airline_symbols.space = "\ua0"
-let g:airline_skip_empty_sections = 1
 
