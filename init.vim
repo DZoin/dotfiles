@@ -1,23 +1,8 @@
 set shell=/bin/bash
 
-set ignorecase
-set backspace=indent,eol,start
-set autoindent
-set backup
-set history=50
-set ruler
-set showcmd
-set incsearch " See search results while typing
-
-let mapleader = " "
-
 let g:deoplete#enable_at_startup = 0
 autocmd InsertEnter * call deoplete#enable()
 
-map Q gq
-set hlsearch
-filetype plugin indent on
-autocmd FileType text setlocal textwidth=78
 
 " Specify a directory for plugins
 " - For Neovim: ~/.local/share/nvim/plugged
@@ -138,12 +123,14 @@ let g:deoplete#sources#ternjs#filetypes = [
 
 " Settings for
 
-filetype plugin indent on    " required
+filetype plugin indent on    " Load each file's plugin and indent files
+
+map Q gq
 
 set splitbelow
 set splitright
 
-"split navigations
+" Split navigations
 
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
@@ -155,14 +142,29 @@ set foldmethod=indent
 set foldlevel=99
 
 " Enable folding with the spacebar
-nnoremap <space> za
-
 let g:SimpylFold_docstring_preview=1
+
+" General rules
+set ignorecase
+set backspace=indent,eol,start
+set backup
+set history=50
+set ruler
+set showcmd
+set incsearch " See search results while typing
+set hlsearch
+set encoding=utf-8
+
+let mapleader = " "
 
 "General indentation
 setlocal shiftwidth=4
 setlocal tabstop=4
+setlocal softtabstop=4
+setlocal textwidth=79
 setlocal expandtab
+setlocal autoindent
+setlocal fileformat=unix
 
 "PEP8 indentation
 au BufNewFile,BufRead *.py
@@ -183,13 +185,13 @@ au BufNewFile,BufRead *.cpp
     \ set autoindent |
     \ set fileformat=unix
 "HTML/CSS Tabstops - 2
-au BufNewFile,BufRead *.js,*.html,*.css
+au BufNewFile,BufRead *.js,*.html,*.css,*.yml
     \ set tabstop=2 |
     \ set softtabstop=2 |
     \ set shiftwidth=2 |
     \ set expandtab |
     \ set autoindent
-"JS/TS Tabstops - 4
+"TS Tabstops - 4
 au BufNewFile,BufRead *.ts
     \ set tabstop=4 |
     \ set softtabstop=4 |
@@ -197,14 +199,13 @@ au BufNewFile,BufRead *.ts
     \ set expandtab |
     \ set autoindent
 
-set encoding=utf-8
-
-let python_highlight_all=1
-
+" Colorscheme and syntax highlighting
 syntax on
 syntax enable
 set background=dark
 colorscheme solarized
+
+let python_highlight_all=1
 
 set number
 
