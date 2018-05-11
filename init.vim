@@ -1,57 +1,54 @@
 set shell=/bin/bash
 
-let g:deoplete#enable_at_startup = 0
-autocmd InsertEnter * call deoplete#enable()
-
-
 " Specify a directory for plugins
 " - For Neovim: ~/.local/share/nvim/plugged
 " - Avoid using standard Vim directory names like 'plugin'
 call plug#begin('~/.vim/plugged')
-" Shorthand notation; fetches https://github.com/junegunn/vim-easy-align
-Plug 'junegunn/vim-easy-align'
 
-" Multiple Plug commands can be written in a single line using | separators
-Plug 'jwhitley/vim-colors-solarized'
-Plug 'tmhedberg/SimpylFold'
-Plug 'vim-scripts/indentpython.vim'
-Plug 'nvie/vim-flake8'
+Plug 'jaawerth/nrun.vim'
 Plug 'jreybert/vimagit'
-Plug 'tpope/vim-repeat'
-Plug 'rstacruz/sparkup'
+Plug 'gioele/vim-autoswap'
+
+" Search and navigation
+Plug 'ctrlpvim/ctrlp.vim'
 Plug 'mileszs/ack.vim'
+Plug 'tmhedberg/SimpylFold'
+
+" TPOPE plugins
+Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-unimpaired'
-Plug 'https://github.com/gioele/vim-autoswap.git'
-Plug 'Raimondi/delimitMate'
-Plug 'ntpeters/vim-better-whitespace'
-Plug 'jelera/vim-javascript-syntax'
-Plug 'ctrlpvim/ctrlp.vim'
 Plug 'tpope/vim-surround'
-Plug 'Chiel92/vim-autoformat'
-Plug 'Quramy/tsuquyomi'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
 Plug 'tpope/vim-fugitive'
 
-"Programming languages - highlighting support
+" Colors and syntax highlighting
+Plug 'jwhitley/vim-colors-solarized'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+
 Plug 'leafgarland/typescript-vim'
 Plug 'nsf/gocode'
 Plug 'digitaltoad/vim-pug'
 Plug 'moll/vim-node'
 Plug 'tpope/vim-rails'
 Plug 'rust-lang/rust.vim'
+Plug 'jelera/vim-javascript-syntax'
 
 " Deoplete - code completion plugins
 Plug 'mhartington/deoplete-typescript'
+Plug 'Quramy/tsuquyomi'
 Plug 'zchee/deoplete-go', { 'do': 'make'}
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'zchee/deoplete-jedi'
 Plug 'zchee/deoplete-clang'
 Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
-Plug 'w0rp/ale'
 
-Plug 'jaawerth/nrun.vim'
+" Linter and auto-formatters
+Plug 'w0rp/ale'
+Plug 'Chiel92/vim-autoformat'
+Plug 'ntpeters/vim-better-whitespace'
+Plug 'Raimondi/delimitMate'
+Plug 'rstacruz/sparkup'
 
 " Initialize plugin system
 call plug#end()
@@ -68,6 +65,10 @@ let g:better_whitespace_filetypes_blacklist=['md']
 
 " Autoclose preview window deoplete
 autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
+
+" Deoplete general settings
+let g:deoplete#enable_at_startup = 0
+autocmd InsertEnter * call deoplete#enable()
 
 " Setting for js (tern) in deoplete
 " ===========================================================================
