@@ -170,7 +170,7 @@ au BufNewFile,BufRead *.cpp
     \ set autoindent |
     \ set fileformat=unix
 "HTML/CSS Tabstops - 2
-au BufNewFile,BufRead *.js,*.html,*.css,*.yml
+au BufNewFile,BufRead *.js,*.html,*.css,*.yml, *.xml
     \ set tabstop=2 |
     \ set softtabstop=2 |
     \ set shiftwidth=2 |
