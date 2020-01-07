@@ -6,11 +6,7 @@ fi
 export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
-if [[ -n $SSH_CONNECTION ]]; then
-  export EDITOR='vim'
-else
-  export EDITOR='nvim'
-fi
+export EDITOR='vim'
 
 # Set default prompt type
 prompt agnoster
@@ -29,8 +25,6 @@ alias .5='cd ../../../../../'               # Go back 5 directory levels
 alias .6='cd ../../../../../../'            # Go back 6 directory levels
 alias ll='ls -FGlAhp'
 alias f='open -a Finder ./'                 # f: Opens current directory in MacOS Finder
-alias StartTomcat='/Library/Tomcat/bin/Startup.sh'
-alias StopTomcat='/Library/Tomcat/bin/Shutdown.sh'
 
 # Jenv
 export PATH="$HOME/.jenv/bin:$PATH"
